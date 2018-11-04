@@ -27,6 +27,7 @@ public class Main extends JFrame{
 	int casehair = 0;
 	int caseeye = 0;
 	int caseskin = 0;
+	int casegender = 0;
 	
 	public Main(String filename) throws IOException
 	{
@@ -57,6 +58,7 @@ public class Main extends JFrame{
 		JMenu item1 = new JMenu("Hair Colour");
 		JMenu item2 = new JMenu("Eye Colour");
 		JMenu item3 = new JMenu("Skin Colour");
+		JMenu item4 = new JMenu("Gender");
 		
 		//Hair
 		JMenuItem item1a = new JMenuItem("Red Hair");
@@ -85,6 +87,13 @@ public class Main extends JFrame{
 		item3.add(item3b);
 		item3.add(item3c);
 		
+		//Gender
+		JMenuItem item4a = new JMenuItem("Male");
+		JMenuItem item4b = new JMenuItem("Female");
+					
+		item4.add(item4a);
+		item4.add(item4b);
+		
 		
 		//action listener for MenuItems HAIR
 		item1a.addActionListener(new ActionListener() {
@@ -99,18 +108,22 @@ public class Main extends JFrame{
 				//create a new vector and add the vector to the vector
 				Vector vh1 = new Vector();
 				vh1.setSize(4);
-				Collections.copy(vh1, attributes.get(0));
+				extracted(vh1);
 				
 				//modify the new vector vh1
 				vh1.setElementAt("AB", 3);
 				System.out.println(vh1.get(3));
 				
 				//copy the value into the old vector
-				Collections.copy(attributes.listIterator(0), vh1.get(3));
+				attributes.insertElementAt((Vector<String>) vh1, 0);
 				
 				attributes.setElementAt(vh1, 0);
 				System.out.println(attributes.elementAt(0));
 				//reload image after editing
+			}
+
+			private void extracted(Vector vh1) {
+				Collections.copy(vh1, attributes.get(0));
 			}
 		});
 		item1b.addActionListener(new ActionListener() {
@@ -166,6 +179,7 @@ public class Main extends JFrame{
 		file.add(item1);
 		file.add(item2);
 		file.add(item3);
+		file.add(item4);
 	
 		menu.add(file);
 		setJMenuBar(menu);
@@ -214,6 +228,7 @@ public class Main extends JFrame{
 		gui.setVisible(true);
 		gui.pack();
 		gui.setTitle("images");
+		
 		
 	}
 }
