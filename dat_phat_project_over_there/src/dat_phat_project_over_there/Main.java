@@ -2,18 +2,23 @@ package dat_phat_project_over_there;
 
 import java.awt.Container;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Vector;
+import java.util.Collections;
 
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
 
 public class Main extends JFrame{
 	Vector<Vector<String>>attributes;
@@ -91,6 +96,21 @@ public class Main extends JFrame{
 				casehair = 1;
 				System.out.println(casehair);
 				System.out.println(attributes.elementAt(0));
+				//create a new vector and add the vector to the vector
+				Vector vh1 = new Vector();
+				vh1.setSize(4);
+				Collections.copy(vh1, attributes.get(0));
+				
+				//modify the new vector vh1
+				vh1.setElementAt("AB", 3);
+				System.out.println(vh1.get(3));
+				
+				//copy the value into the old vector
+				Collections.copy(attributes.listIterator(0), vh1.get(3));
+				
+				attributes.setElementAt(vh1, 0);
+				System.out.println(attributes.elementAt(0));
+				//reload image after editing
 			}
 		});
 		item1b.addActionListener(new ActionListener() {
@@ -161,6 +181,11 @@ public class Main extends JFrame{
 		gl.setVerticalGroup(gl.createSequentialGroup().addComponent(button));
 		gl.setHorizontalGroup(gl.createSequentialGroup().addComponent(button));
 		gl.setAutoCreateContainerGaps(true);
+		
+		
+		
+		
+		
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -182,6 +207,13 @@ public class Main extends JFrame{
 				
 			}
 		});
+		
+		
+		Images gui = new Images();
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setVisible(true);
+		gui.pack();
+		gui.setTitle("images");
 		
 	}
 }
