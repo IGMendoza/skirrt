@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Images extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ImageIcon image1;
 	private JLabel label1;
 	private ImageIcon image2;
@@ -14,11 +18,7 @@ public class Images extends JFrame{
 	
 	Images(){
 		setLayout(new FlowLayout());
-		if (rootPaneCheckingEnabled) {
-			
-		} else {
-
-		}
+		
 		image1 = new ImageIcon(getClass().getResource("/skirrt/imgDir/eyeImg/Eblu.png﻿"));
 		
 		label1 = new JLabel(image1);
@@ -30,6 +30,4 @@ public class Images extends JFrame{
 		add(label2);
 		
 	}
-	
-	
 }

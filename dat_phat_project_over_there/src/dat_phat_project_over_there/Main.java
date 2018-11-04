@@ -1,15 +1,20 @@
 package dat_phat_project_over_there;
 
 import java.awt.Container;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Vector;
 import java.util.Collections;
 
+import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -230,6 +235,12 @@ public class Main extends JFrame{
 		gui.setTitle("images");
 		
 		
-	}
+		//whatever
+		File f = new File(C:\Users\Adnan\Documents\GitHub\skirrt\imgDir\bodyImg\bianca.png);
+		Desktop d = Desktop.getDesktop();
+		d.open(f);
+		System.out.println("image sample");
+		
+}
 }
 
